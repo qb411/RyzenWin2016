@@ -30,7 +30,7 @@ Server will be migrated with existing software OS to new hardware platform, idea
 
 Other parts will remain the same ideally during the failover.  Hard Drives are managed by Storage Spaces and software raid/jbod so it should make migration issues minimal. 
 
-## 2018/12/28 - Initial migration
+### 2018/12/28 - Initial migration
 Physical hardware swapout was complete in less than an hour. Boot up was slow/difficult.  Initial assessment was no bluescreens and hardware adjustment continued.   Removal of Realtek driver from old motherboard setup provided better network compatibility. 
 
 _Outstanding issues at this time:_ 
@@ -39,5 +39,5 @@ https://blog.workinghardinit.work/2017/06/19/installing-intel-i211-i217v-i218v-i
 - Blue Screens continuing to occur.  Appears this is due to general driver unavailability for the OS.  Cannot use any AMD setup utilities for drivers due to non-support of Windows Server 2016. Possible solution mentioned in Byte Edit of installer:
 https://www.reddit.com/r/Amd/comments/5yauiu/ryzen_master_does_not_run_on_windows_server_2016/
 
-## 2018/12/28 - Update 1
+### 2018/12/28 - Update 1
 Server continues to experience significant BSOD errors with added hardware.  Have setup only essential hardware (RAID Card/GPU) and so far this is most stable state. BSOD's do continue and occur frequently with the 520X-t2 NIC added.   Continue to research the driver compatibility issues. 
