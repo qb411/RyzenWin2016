@@ -33,7 +33,7 @@ Other parts will remain the same ideally during the failover.  Hard Drives are m
 ## 2018/12/28 - Initial migration
 Physical hardware swapout was complete in less than an hour. Boot up was slow/difficult.  Initial assessment was no bluescreens and hardware adjustment continued.   Removal of Realtek driver from old motherboard setup provided better network compatibility. 
 
-_ _Outstanding issues at this time:_ _ 
+_Outstanding issues at this time: _ 
 - Server is not recognizing onboard Intel NIC, I211-AT NIC present on the motherboard does not have driver.  Follow this URL for adjusting the existing Win 10 driver.  
 https://blog.workinghardinit.work/2017/06/19/installing-intel-i211-i217v-i218v-i219v-drivers-windows-server-2016-eufi-boot/
 - Blue Screens continuing to occur.  Appears this is due to general driver unavailability for the OS.  Cannot use any AMD setup utilities for drivers due to non-support of Windows Server 2016. Possible solution mentioned in Byte Edit of installer:
