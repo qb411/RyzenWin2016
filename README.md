@@ -30,6 +30,12 @@ Server will be migrated with existing software OS to new hardware platform, idea
 
 Other parts will remain the same ideally during the failover.  Hard Drives are managed by Storage Spaces and software raid/jbod so it should make migration issues minimal. 
 
+## Important Notes/Lessons Learned
+1. Ensure you enable SVM (AKA AMD Virtualization) setting in BIOS.
+2. Driver compatibility is a major concern.  PCI drivers were absolutely necesary to solve BSOD's, onboard NIC's (211, 217, 218, 219) must be hacked for Windows Server 2016, or find proper replacement hardware.
+3. All software RAID/JBOD, Storage Space Pools etc followed the sytem without issue in the OS.  
+4. Hyper-V VM's had immediate problems due to the prior Intel Hardware provisioning.  Create new VM configs and point them at the VHD's to get functionality back. 
+
 ## WorkLog
 
 ### 2018/12/28 - Initial migration
@@ -53,3 +59,7 @@ Extracted mb_driver_chipset_b450_w10_18.10.20.02 and looked in the following pat
 
 Used the above path with Device Manager to discover drivers for all unidentified hardware in device manager.  PCI drivers appear to have resolved all initial BSOD issues that were experienced.
 
+### 2018/12/28 - Update 3
+So far the major BSOD's have been gone since updating the PCI drivers in Update 2.   In addition I've now loaded the appropriate Nvidia Drivers for the Zotac 750 GPU) and added the Intel X520-T2 dual port NIC.   This has now proved perfectly functional and the dual port NIC was immediately recognized.  I've also been able to migrate the VM's in Hyper-V through creating new VM configs.   It turns out that the old VM's were built on Intel and the configs will not work with a AMD system.  However to expedite recovery, just create a new VM and point to the old VHD.  Once created it will bring up without issue. 
+
+So far I cannot use alot of the specific Ryzen software to provide oversight/view on the hardware state.  So far I'm not worried as this is a fairly low-utilization system right now.  However the overall unawareness of the hardware is a problem.  However it is a good point to be aware.  Nvidia drivers loaded without issue, and have been stable again since the PCI drivers were loaded. 
